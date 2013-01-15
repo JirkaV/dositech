@@ -11,6 +11,9 @@ main_db = Dbf(main_db_file)
 databases = []
 
 for rec in main_db:
+    if rec['CHAR'] != 'P': # puvodni davka
+        continue
+
     fmask = '%s.%s' % (rec['PRESS'][1:], rec['DBF_EXT'])
     databases.append(fmask)
 
